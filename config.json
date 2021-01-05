@@ -1,0 +1,11 @@
+{
+  "port": {
+    "port": "6000"
+  },
+  "database": {
+    "postgres": "postgres://postgres:naldo@127.0.0.1:5432/crowfunding?sslmode=disable"
+  },
+  "security": {
+    "secret": "rahasia"
+  }
+}
