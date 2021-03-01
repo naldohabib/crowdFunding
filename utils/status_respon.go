@@ -36,7 +36,6 @@ func HandleError(c *gin.Context, code int, message string, ) {
 	c.JSON(code, jsonResponse)
 }
 
-
 //func HandleSucces(c *gin.Context, data interface{}) {
 //	var returnData = model.Respons{
 //		Meta: model.Meta{},

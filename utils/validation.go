@@ -3,6 +3,7 @@ package utils
 import (
 	"crowFunding/model"
 	"errors"
+	"golang.org/x/crypto/bcrypt"
 	"strings"
 	"github.com/badoux/checkmail"
 )
@@ -44,4 +45,9 @@ func Validate(action string, user *model.User) error {
 		}
 		return nil
 	}
+}
+
+// VerifyPassword use for validasi password
+func VerifyPassword(hashedPassword, password string) error {
+	return bcrypt.CompareHashAndPassword([]byte(hashedPassword), []byte(password))
 }

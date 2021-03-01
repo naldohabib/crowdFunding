@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4c8a3634-efd7-4997-ba6a-ab8951311481" name="Default Changelist" comment="" />
+    <list default="true" id="4c8a3634-efd7-4997-ba6a-ab8951311481" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/handler/user_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/handler/user_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/repository/user_repo_impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/repository/user_repo_impl.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/service/user_service_impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/service/user_service_impl.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user_repo.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/user_repo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/user_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/user_service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/status_respon.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/status_respon.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/validation.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/validation.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,10 +24,14 @@
     </option>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1jlpFJ9HnwQE5yYxSmuwPJeZWMq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -61,6 +74,18 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

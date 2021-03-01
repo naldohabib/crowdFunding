@@ -11,18 +11,31 @@ type UserRepoImpl struct {
 	DB *gorm.DB
 }
 
-func (u UserRepoImpl) ViewByEmail(email string) (*model.User, error) {
-	var user = model.User{}
-	err := u.DB.Table("users").Where("email = ?", email).First(&user).Error
+func (u UserRepoImpl) Login(user *model.User) (*model.User, error) {
+	users := new(model.User)
+	err := u.DB.Table("users").Where("email = ?", user.Email).Take(&users).Error
 	if err != nil {
-		fmt.Printf("[UserRepo.ViewByEmail] Error execute query %v \n", err)
-		return nil, fmt.Errorf("email is not exist")
+		return nil, err
 	}
-	return &user, nil
+	return users, nil
+
+}
+
+func (u UserRepoImpl) CheckMail(user *model.User) bool {
+	users := new(model.UserFormatter)
+
+	err := u.DB.Raw("SELECT * FROM \"users\" WHERE email = ? LIMIT 1", user.Email).Scan(users).Error
+
+	if err != nil {
+		return true
+	}
+
+	return false
 }
 
 func (u UserRepoImpl) Insert(user *model.User) (*model.User, error) {
 	err := u.DB.Save(&user).Error
+
 	if err != nil {
 		fmt.Printf("[UserRepo.Insert] Error execute query %v \n", err)
 		return nil, fmt.Errorf("failed insert data user")
@@ -33,7 +46,9 @@ func (u UserRepoImpl) Insert(user *model.User) (*model.User, error) {
 
 func (u UserRepoImpl) ViewAll() (*[]model.User, error) {
 	var user []model.User
+
 	err := u.DB.Find(&user).Error
+
 	if err != nil {
 		fmt.Printf("[UserRepo.ViewAll] Error execute query %v \n", err)
 		return nil, fmt.Errorf("failed read all data user")

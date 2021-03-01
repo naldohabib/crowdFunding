@@ -3,17 +3,41 @@ package service
 import (
 	"crowFunding/model"
 	"crowFunding/user"
+	"crowFunding/utils"
+	"errors"
+	"fmt"
+	"golang.org/x/crypto/bcrypt"
 )
 
 type UserServiceImpl struct {
 	userRepo user.UserRepo
 }
 
-func (u UserServiceImpl) ViewByEmail(email string) (*model.User, error) {
-	return u.userRepo.ViewByEmail(email)
+func (u UserServiceImpl) Login(user *model.User) (*model.User, error) {
+	model, err := u.userRepo.Login(user)
+	if err != nil {
+		return nil, errors.New("Email not registered")
+	}
+
+	err = utils.VerifyPassword(model.Password, user.Password)
+	if err != nil && errors.Is(err, bcrypt.ErrMismatchedHashAndPassword) {
+		return nil, errors.New("Email invalid password")
+	}
+
+	return model, nil
+}
+
+func (u UserServiceImpl) CheckMail(user *model.User) bool {
+	return u.userRepo.CheckMail(user)
 }
 
 func (u UserServiceImpl) Insert(user *model.User) (*model.User, error) {
+	chechMail := u.userRepo.CheckMail(user)
+
+	if !chechMail {
+		fmt.Println("[UserService.Insert] Email already used!")
+		return nil, errors.New("Opps.. sorry email already used")
+	}
 	return u.userRepo.Insert(user)
 }
 
