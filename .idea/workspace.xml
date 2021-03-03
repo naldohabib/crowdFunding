@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="4c8a3634-efd7-4997-ba6a-ab8951311481" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/user_entity.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/user_entity.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/handler/user_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/handler/user_handler.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/repository/user_repo_impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/repository/user_repo_impl.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/service/user_service_impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/service/user_service_impl.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/user_repo.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/user_repo.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/user_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/user_service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/status_respon.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/status_respon.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/validation.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/validation.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

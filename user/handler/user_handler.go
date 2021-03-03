@@ -14,6 +14,33 @@ type UserHandler struct {
 	userService user.UserService
 }
 
+func (h UserHandler) UploadAvatar(gin *gin.Context)  {
+	file, err := gin.FormFile("avatar")
+	if err != nil {
+		utils.HandleError(gin, http.StatusBadRequest, "Failed To Upload avatar image 1")
+		return
+	}
+
+	userID := 1
+
+	path := fmt.Sprintf("images/%d-%s", userID, file.Filename)
+
+	err = gin.SaveUploadedFile(file, path)
+	if err != nil {
+		utils.HandleError(gin, http.StatusBadRequest, "Failed To Upload avatar image 2")
+		return
+	}
+
+
+	user, err := h.userService.SaveAvatar(userID, path)
+	if err != nil {
+		utils.HandleError(gin, http.StatusBadRequest, "Failed To Upload avatar image 3")
+		return
+	}
+
+	utils.HandleSuccess(gin, "Successfully Upload Picture", user)
+}
+
 func (h UserHandler) viewAllUser(gin *gin.Context) {
 	user, err := h.userService.ViewAll()
 
@@ -102,5 +129,6 @@ func CreateUserHandler(u *gin.Engine, userService user.UserService) {
 	api.GET("/userGet", userHandler.viewAllUser)
 	api.POST("/user", userHandler.addUser)
 	api.POST("/sessions", userHandler.login)
+	api.POST("/avatars", userHandler.UploadAvatar)
 
 }

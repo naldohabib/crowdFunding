@@ -13,6 +13,22 @@ type UserServiceImpl struct {
 	userRepo user.UserRepo
 }
 
+func (u UserServiceImpl) SaveAvatar(ID int, fileLocation string) (*model.User, error) {
+	user, err := u.userRepo.FindById(ID)
+	if err != nil {
+		return user, err
+	}
+
+	user.AvatarFileName = fileLocation
+
+	updateUser, err := u.userRepo.Update(user)
+	if err != nil {
+		return updateUser, err
+	}
+
+	return updateUser, nil
+}
+
 func (u UserServiceImpl) Login(user *model.User) (*model.User, error) {
 	model, err := u.userRepo.Login(user)
 	if err != nil {

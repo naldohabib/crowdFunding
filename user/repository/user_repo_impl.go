@@ -11,6 +11,27 @@ type UserRepoImpl struct {
 	DB *gorm.DB
 }
 
+func (u UserRepoImpl) Update(user *model.User) (*model.User, error) {
+	err := u.DB.Save(&user).Error
+
+	if err != nil {
+		return user, err
+	}
+
+	return user, nil
+}
+
+func (u UserRepoImpl) FindById(ID int) (*model.User, error) {
+	user :=  new(model.User)
+
+	err := u.DB.Where("id = ?", ID).Find(&user).Error
+	if err != nil {
+		return user, err
+	}
+
+	return user, err
+}
+
 func (u UserRepoImpl) Login(user *model.User) (*model.User, error) {
 	users := new(model.User)
 	err := u.DB.Table("users").Where("email = ?", user.Email).Take(&users).Error

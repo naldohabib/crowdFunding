@@ -7,4 +7,6 @@ type UserRepo interface {
 	Insert(user *model.User) (*model.User, error)
 	CheckMail(user *model.User) bool
 	Login(user *model.User) (*model.User, error)
+	FindById(ID int) (*model.User, error)
+	Update(user *model.User) (*model.User, error)
 }
